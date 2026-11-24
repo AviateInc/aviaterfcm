@@ -146,9 +146,9 @@ export default function HomeCarousel() {
                         </span>
                     </span>
                 </div>
-                <p className="max-w-40 text-right text-xs leading-relaxed text-slate-300 sm:max-w-80 sm:text-sm">
+                {/* <p className="max-w-40 text-right text-xs leading-relaxed text-slate-300 sm:max-w-80 sm:text-sm">
                     Roofing. Flooring. Construction materials.
-                </p>
+                </p> */}
                 <span className="text-right text-xs leading-relaxed text-slate-300 sm:max-w-80 sm:text-sm">
                     <strong>(916) 993-4000</strong> | <strong>sales@aviaterfcm.com</strong>
                 </span>
