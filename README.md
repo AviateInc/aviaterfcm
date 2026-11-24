@@ -48,3 +48,11 @@ Run these commands from the repository root:
 Formatting follows Aviate Supply: four spaces, double quotes, semicolons, trailing commas and a 100-character line width. Generated files and the package lockfile are excluded.
 
 Tailwind CSS is compiled by the configured `@tailwindcss/turbopack` loader. The root layout imports `app/globals.css`, which imports Tailwind and registers the daisyUI plugin.
+
+## GitHub Pages preview
+
+The public preview is deployed to https://aviateinc.github.io/aviaterfcm/ by the Pages workflow whenever main is updated. The workflow can also be run manually in GitHub Actions.
+
+Run `npm run build:pages` to generate the same static site in `out/`. This build uses the repository path prefix, exports images without a server dependency, and reduces the size of exported JPEG copies. Original photos are preserved. The splash screen and carousel continue to run in the browser.
+
+The normal `npm run dev` and `npm run build` commands retain the standard Next.js configuration. On the static preview, the footer year updates on each deployment. A different Pages path can be supplied through `PAGES_BASE_PATH` before building.

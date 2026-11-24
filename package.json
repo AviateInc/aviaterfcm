@@ -10,7 +10,8 @@
         "lint:fix": "eslint . --fix --max-warnings=0 && npm run format",
         "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mjs,cjs,css,json,yml,yaml}\"",
         "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,cjs,css,json,yml,yaml}\"",
-        "typecheck": "next typegen && tsc --noEmit"
+        "typecheck": "next typegen && tsc --noEmit",
+        "build:pages": "node scripts/build-pages.mjs"
     },
     "dependencies": {
         "lucide-react": "^1.79.0",
@@ -29,6 +30,7 @@
         "eslint-config-next": "16.4.6",
         "eslint-config-prettier": "^10.1.8",
         "prettier": "^3.10.1",
+        "sharp": "^0.35.5",
         "tailwindcss": "4.3.3",
         "typescript": "^5"
     }

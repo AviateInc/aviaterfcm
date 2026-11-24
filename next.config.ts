@@ -1,12 +1,22 @@
 import type { NextConfig } from "next";
 
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const pagesBasePath = process.env.PAGES_BASE_PATH ?? "/aviaterfcm";
+
 const nextConfig: NextConfig = {
-    /* config options here */
     experimental: {
         agentFeedback: true,
     },
-    cacheComponents: true,
-    partialPrefetching: true,
+    cacheComponents: !isGitHubPages,
+    partialPrefetching: !isGitHubPages,
+    ...(isGitHubPages
+        ? {
+              output: "export",
+              basePath: pagesBasePath,
+              trailingSlash: true,
+              images: { unoptimized: true },
+          }
+        : {}),
     turbopack: {
         rules: {
             "*.css": {
