@@ -34,3 +34,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Code quality
+
+Run these commands from the repository root:
+
+- `npm run lint`: check Next.js, React and TypeScript rules with zero warnings, then check formatting.
+- `npm run lint:fix`: apply ESLint fixes and format the code.
+- `npm run format`: format source and configuration files.
+- `npm run format:check`: check formatting without changing files.
+- `npm run typecheck`: generate Next.js route types and check TypeScript.
+
+Formatting follows Aviate Supply: four spaces, double quotes, semicolons, trailing commas and a 100-character line width. Generated files and the package lockfile are excluded.
+
+Tailwind CSS is compiled by the configured `@tailwindcss/turbopack` loader. The root layout imports `app/globals.css`, which imports Tailwind and registers the daisyUI plugin.
