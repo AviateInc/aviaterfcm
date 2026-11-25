@@ -20,7 +20,7 @@ export default function CredentialsComponent() {
                 <div className="p-4">
                     <Image 
                         src={ DVBE } 
-                        alt="GSA Logo" 
+                        alt="DVBE Logo" 
                         className="w-48.75"
                     />
                 </div>
@@ -28,7 +28,7 @@ export default function CredentialsComponent() {
                 <div className="px-4">
                     <Image 
                         src={ HubZone } 
-                        alt="GSA Logo" 
+                        alt="HubZone Logo" 
                         className="w-76.25"
                     />
                 </div>
@@ -36,18 +36,18 @@ export default function CredentialsComponent() {
                 <div className="px-4">
                     <Image 
                         src={ SDVOSB } 
-                        alt="GSA Logo"
+                        alt="SDVOSB Logo"
                         className="w-38.75" 
-                        />
+                    />
                 </div>
                 
                 <div className="px-4">
                     <Image 
                         src={ NASPO } 
-                        alt="GSA Logo" 
+                        alt="NASPO Logo" 
                         className="w-48.75"
                         
-                        />
+                    />
                 </div>
             
         </div>
