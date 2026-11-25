@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import aviateLogo from "../../public/Aviate_rfcm.png";
+import aviateLogo from "../../public/Aviate_rfcm_gold.png";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import concrete from "../../public/concrete-floors.jpg";
 import construction from "../../public/construction-site.jpg";
