@@ -154,7 +154,7 @@ export default function HomeCarousel() {
                     Roofing. Flooring. Construction materials.
                 </p> */}
                 <span className="text-right text-xs leading-relaxed text-slate-300 sm:max-w-80 sm:text-sm">
-                    <strong>(916) 993-4000</strong> | <strong>sales@aviaterfcm.com</strong>
+                    <strong>(916) 993-4000</strong> <span className="text-[#d4af37]"><strong>|</strong></span> <strong>sales@aviaterfcm.com</strong>
                 </span>
             </div>
 
