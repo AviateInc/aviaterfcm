@@ -17,22 +17,28 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
         if (!visible) {
             return;
         }
+
         const page = content.current;
         const previousOverflow = document.body.style.overflow;
         const previousFocus = document.activeElement;
+
         document.body.style.overflow = "hidden";
+
         if (page) {
             page.inert = true;
         }
+
         skipButton.current?.focus({ preventScroll: true });
         const timer = window.setTimeout(() => setVisible(false), SPLASH_DURATION_MS);
 
         return () => {
             window.clearTimeout(timer);
             document.body.style.overflow = previousOverflow;
+
             if (page) {
                 page.inert = false;
             }
+
             if (previousFocus instanceof HTMLElement && previousFocus !== document.body) {
                 previousFocus.focus({ preventScroll: true });
             } else {
@@ -50,6 +56,7 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
             >
                 {children}
             </div>
+
             {visible && (
                 <motion.div
                     data-site-splash
@@ -71,10 +78,12 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
                         }
                     }}
                 >
+
                     <div
                         className="pointer-events-none absolute inset-0 bg-radial from-blue-900/25 via-transparent to-transparent"
                         aria-hidden="true"
                     />
+
                     <div className="relative z-10 flex flex-col items-center text-center">
                         <Image
                             src={aviateLogo}
@@ -84,15 +93,18 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
                             sizes="96px"
                             preload
                         />
+
                         <p className="mb-3 text-sm font-medium tracking-[0.3em] text-blue-300 uppercase">
                             Aviate RFCM
                         </p>
+
                         <h1
                             id="splash-title"
                             className="text-3xl font-medium tracking-tight sm:text-5xl"
                         >
                             Ready for takeoff.
                         </h1>
+
                         <p
                             id="splash-description"
                             className="mt-4 max-w-sm text-base leading-relaxed text-slate-300"
@@ -110,6 +122,7 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
                         aria-hidden="true"
                     >
                         <div className="absolute right-0 bottom-5 left-0 h-px bg-linear-to-r from-transparent via-slate-500 to-transparent" />
+                        
                         <div className="absolute right-0 bottom-2 left-0 flex justify-around px-4">
                             {Array.from({ length: 12 }, (_, index) => (
                                 <span
@@ -118,6 +131,7 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
                                 />
                             ))}
                         </div>
+                        
                         <motion.div
                             className="absolute bottom-6 left-[10%] w-40 origin-center sm:w-52"
                             initial={{ x: "-15vw", y: 0, rotate: 0, opacity: 0 }}
@@ -179,6 +193,7 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
                                 transition={{ duration: 5, ease: "linear" }}
                             />
                         </div>
+
                         <div className="mt-4 flex items-center justify-between gap-4 text-sm text-slate-400">
                             <span>Welcome aboard</span>
                             <button
@@ -193,6 +208,7 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
                     </div>
                 </motion.div>
             )}
+            
             <noscript>
                 <style>{"[data-site-splash] { display: none !important; }"}</style>
             </noscript>
