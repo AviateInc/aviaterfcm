@@ -7,6 +7,7 @@ import AboutContinuedComponent from "../components/aboutContinued";
 import ShippingComponent from "../components/shipping";
 import ExpertiseComponent from "../components/expertise";
 import ContactComponent from "../components/contact";
+import CredentialsComponent from "../components/credentials";
 
 export default function HomePage() {
     return (
@@ -22,6 +23,7 @@ export default function HomePage() {
             <ShippingComponent />
             <ExpertiseComponent />
             <ContactComponent />
+            <CredentialsComponent />
         </div>
     );
 }

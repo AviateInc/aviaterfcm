@@ -2,8 +2,7 @@ import { Mail, Phone, Printer } from "lucide-react";
 
 const departments = [
     { label: "Sales Department:", email: "sales@aviaterfcm.com" },
-    { label: "Administrative Support team:", email: "support_admin@aviaterfcm.com" },
-    { label: "President: Timothy P. Devine Lt Col USAF (Ret)", email: "devine@aviaterfcm.com" },
+    { label: "Administrative Support team:", email: "support_admin@aviaterfcm.com" }
 ];
 
 export default function ContactComponent() {

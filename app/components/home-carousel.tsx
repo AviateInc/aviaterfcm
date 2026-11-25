@@ -109,18 +109,22 @@ export default function HomeCarousel() {
             className="mx-auto w-[calc(100%-2rem)] max-w-[1600px] pt-4 pb-4 font-sans text-slate-50 sm:pt-6"
             aria-label="Roofing, flooring and construction materials"
             aria-roledescription="carousel"
+
             onPointerEnter={(event) => {
                 if (event.pointerType === "mouse") {
                     setHovered(true);
                 }
             }}
+
             onPointerLeave={() => setHovered(false)}
             onPointerDownCapture={() => setKeyboardFocus(false)}
+
             onFocusCapture={(event) => {
                 if (event.target.matches(":focus-visible")) {
                     setKeyboardFocus(true);
                 }
             }}
+
             onBlurCapture={(event) => {
                 if (!event.currentTarget.contains(event.relatedTarget)) {
                     setKeyboardFocus(false);
@@ -175,6 +179,7 @@ export default function HomeCarousel() {
                     if (start) {
                         const dx = event.clientX - start.x;
                         const dy = event.clientY - start.y;
+
                         if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
                             advance(dx < 0 ? 1 : -1);
                         }
@@ -253,6 +258,7 @@ export default function HomeCarousel() {
                         {slides[active].category}
                     </span>
                 </p>
+
                 <div
                     className="col-span-2 row-start-2 flex items-center justify-center sm:order-none"
                     aria-label="Choose a slide"
@@ -273,6 +279,7 @@ export default function HomeCarousel() {
                         </button>
                     ))}
                 </div>
+
                 <div className="flex justify-end gap-2 sm:min-w-48">
                     <button
                         type="button"
@@ -294,6 +301,7 @@ export default function HomeCarousel() {
                             {paused ? <path d="m9 5 10 7-10 7Z" /> : <path d="M9 5v14M15 5v14" />}
                         </svg>
                     </button>
+
                     <button
                         type="button"
                         className={controlClass}
@@ -312,6 +320,7 @@ export default function HomeCarousel() {
                             <path d="m14 6-6 6 6 6" />
                         </svg>
                     </button>
+                    
                     <button
                         type="button"
                         className={controlClass}
