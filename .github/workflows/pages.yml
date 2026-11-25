@@ -30,6 +30,7 @@ jobs:
             - name: Build the static preview
               run: npm run build:pages
               env:
+                  NEXT_PUBLIC_CONTACT_FORM_ENDPOINT: ${{ vars.CONTACT_FORM_ENDPOINT }}
                   PAGES_BASE_PATH: /${{ github.event.repository.name }}
             - name: Upload the site
               uses: actions/upload-pages-artifact@v4

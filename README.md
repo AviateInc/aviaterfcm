@@ -56,3 +56,15 @@ The public preview is deployed to https://aviateinc.github.io/aviaterfcm/ by the
 Run `npm run build:pages` to generate the same static site in `out/`. This build uses the repository path prefix, exports images without a server dependency, and reduces the size of exported JPEG copies. Original photos are preserved. The splash screen and carousel continue to run in the browser.
 
 The normal `npm run dev` and `npm run build` commands retain the standard Next.js configuration. On the static preview, the footer year updates on each deployment. A different Pages path can be supplied through `PAGES_BASE_PATH` before building.
+
+## Contact email form
+
+The contact card contains a responsive email form. Run `npm run dev` and, in a second terminal, `npm run mail:dev` to use it locally. The mail command generates temporary Ethereal SMTP credentials in memory: messages are captured for preview and never delivered to real mailboxes. After submitting, use **View captured test email** to inspect the message.
+
+Run `npm run test:contact` for the HTTP validation and submission checks. These checks use an isolated mail transport and send no email.
+
+When IT supplies SMTP details, copy `server/smtp.env.example` to `.env.mail.local`, fill in the server-only settings, and run `npm run mail:start`. This command requires real SMTP configuration and never falls back to test mail. Credentials must remain in the ignored environment file or backend host settings. STARTTLS is required on port 587; port 465 uses TLS from connection start.
+
+GitHub Pages cannot run Nodemailer. Host the Node service separately behind HTTPS, set its allowed origins to the actual website origin (for the current preview, `https://aviateinc.github.io`), then set the GitHub Actions repository variable `CONTACT_FORM_ENDPOINT` to its full `https://.../contact` URL and rebuild the preview. Only that public endpoint is included in the frontend. For other builds, set `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` before building. Until an endpoint is configured, the public form is disabled and offers the sales email address instead.
+
+The service accepts a fixed destination address, validates fields, limits request size and submission frequency, and keeps SMTP settings out of responses. If deployed with multiple instances or behind a proxy, configure shared abuse controls at the hosting layer before opening public submissions.

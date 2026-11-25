@@ -11,14 +11,19 @@
         "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mjs,cjs,css,json,yml,yaml}\"",
         "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,cjs,css,json,yml,yaml}\"",
         "typecheck": "next typegen && tsc --noEmit",
-        "build:pages": "node scripts/build-pages.mjs"
+        "build:pages": "node scripts/build-pages.mjs",
+        "mail:dev": "node --env-file-if-exists=.env.mail.local server/contact-server.mjs --test",
+        "mail:start": "node --env-file-if-exists=.env.mail.local server/contact-server.mjs",
+        "test:contact": "node --test server/contact-server.test.mjs"
     },
     "dependencies": {
         "lucide-react": "^1.79.0",
         "motion": "^14.14.0",
         "next": "16.4.6",
+        "nodemailer": "^10.6.1",
         "react": "19.3.0",
-        "react-dom": "19.3.0"
+        "react-dom": "19.3.0",
+        "react-hot-toast": "^2.6.1"
     },
     "devDependencies": {
         "@tailwindcss/turbopack": "4.3.3",
