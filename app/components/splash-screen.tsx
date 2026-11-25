@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import aviateLogo from "../../public/Aviate_rfcm.png";
+import aviateLogo from "../../public/Aviate_rfcm_gold.png";
 
 const SPLASH_DURATION_MS = 5000;
 
