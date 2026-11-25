@@ -260,7 +260,7 @@ export default function HomeCarousel() {
                 </p>
 
                 <div
-                    className="col-span-2 row-start-2 flex items-center justify-center sm:order-none"
+                    className="col-span-2 row-start-2 flex items-center justify-center sm:order-0"
                     aria-label="Choose a slide"
                 >
                     {slides.map((slide, index) => (

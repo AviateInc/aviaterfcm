@@ -64,7 +64,7 @@ export default function SplashScreen({ children }: { children: ReactNode }) {
                     aria-modal="true"
                     aria-labelledby="splash-title"
                     aria-describedby="splash-description"
-                    className="fixed inset-0 z-[100] flex min-h-svh flex-col items-center justify-center overflow-hidden bg-[#101c24] px-6 font-sans text-slate-50"
+                    className="fixed inset-0 z-100 flex min-h-svh flex-col items-center justify-center overflow-hidden bg-[#101c24] px-6 font-sans text-slate-50"
                     initial={{ opacity: 1 }}
                     animate={{ opacity: [1, 1, 0] }}
                     transition={{ duration: 5, times: [0, 0.92, 1], ease: "easeInOut" }}
