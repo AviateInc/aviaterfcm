@@ -3,17 +3,14 @@
 import { useRef, useState, type FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const endpoint =
-    process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT ??
-    (process.env.NODE_ENV === "development" ? "http://localhost:3201/contact" : "");
+const endpoint =  process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT ?? (process.env.NODE_ENV === "development" ? "http://localhost:3201/contact" : "");
 
 export default function ContactEmailForm() {
     const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
     const [feedback, setFeedback] = useState("");
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
     const inFlight = useRef(false);
-    const fieldClass =
-        "input w-full min-w-0 border-white/20 bg-slate-950/40 text-base text-slate-50 placeholder:text-slate-500 focus:border-blue-300 focus:outline-blue-300";
+    const fieldClass = "input w-full min-w-0 border-white/20 bg-slate-950/40 text-base text-slate-50 placeholder:text-slate-500 focus:border-blue-300 focus:outline-blue-300";
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -49,29 +46,21 @@ export default function ContactEmailForm() {
                 );
             }
 
-            const successMessage = result.testMode
-                ? "Your test email was captured. It was not delivered to a mailbox."
-                : "Thank you! Your message has been submitted.";
+            const successMessage = result.testMode ? "Your test email was captured. It was not delivered to a mailbox." : "Thank you! Your message has been submitted.";
+
             setStatus("success");
             setFeedback(successMessage);
+
             toast.success(successMessage, { id: "contact-submission" });
-            if (
-                result.testMode &&
-                typeof result.previewUrl === "string" &&
-                result.previewUrl.startsWith("https://ethereal.email/message/")
-            ) {
+
+            if (result.testMode && typeof result.previewUrl === "string" && result.previewUrl.startsWith("https://ethereal.email/message/")) {
                 setPreviewUrl(result.previewUrl);
             }
 
             form.reset();
         } catch (error) {
             setStatus("error");
-
-            setFeedback(
-                error instanceof Error && error.message.startsWith("Please wait")
-                    ? error.message
-                    : "We couldn�t confirm your message was submitted. Please try again or email sales@aviaterfcm.com.",
-            );
+            setFeedback(error instanceof Error && error.message.startsWith("Please wait") ? error.message : "We couldn�t confirm your message was submitted. Please try again or email sales@aviaterfcm.com.");
         } finally {
             inFlight.current = false;
         }
@@ -264,7 +253,7 @@ export default function ContactEmailForm() {
                             {feedback}
                         </p>
                     )}
-                    
+
                     {previewUrl && (
                         <a
                             className="link mt-2 inline-block text-blue-300"

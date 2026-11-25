@@ -7,25 +7,17 @@ function validate(data) {
     if (!data || typeof data !== "object" || Array.isArray(data)) {
         return null;
     }
+
     const fields = {};
-    for (const [key, limit] of Object.entries({
-        name: 100,
-        email: 254,
-        company: 150,
-        subject: 150,
-        message: 4000,
-    })) {
+
+    for (const [key, limit] of Object.entries({ name: 100, email: 254, company: 150, subject: 150, message: 4000 })) {
         if (data[key] !== undefined && typeof data[key] !== "string") {
             return null;
         }
 
         const value = (data[key] ?? "").trim();
 
-        if (
-            value.length > limit ||
-            (key !== "company" && !value) ||
-            (key !== "message" && /[\r\n\0]/.test(value))
-        ) {
+        if (value.length > limit || (key !== "company" && !value) || (key !== "message" && /[\r\n\0]/.test(value))) {
             return null;
         }
 
@@ -37,7 +29,7 @@ function validate(data) {
 
 export function createContactServer({ mailer, allowedOrigins }) {
     const attempts = new Map();
-    
+
     const server = createServer(async (request, response) => {
         const reply = (status, body) => {
             response.writeHead(status, {

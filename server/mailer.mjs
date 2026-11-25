@@ -5,12 +5,7 @@ export async function createMailer({ testMode = false } = {}) {
     
     if (testMode) {
         const account = await nodemailer.createTestAccount();
-        const transport = nodemailer.createTransport({
-            ...account.smtp,
-            auth: { user: account.user, pass: account.pass },
-            ...timeouts,
-        });
-
+        const transport = nodemailer.createTransport({ ...account.smtp, auth: { user: account.user, pass: account.pass }, ...timeouts });
         await transport.verify();
         return { transport, from: account.user, to: "sales@aviaterfcm.com", testMode: true };
     }
@@ -66,7 +61,7 @@ export async function sendContactEmail(mailer, fields) {
     if (!info.accepted?.length) {
         throw new Error("SMTP did not accept the message");
     }
-    
+
     return {
         ok: true,
         testMode: mailer.testMode,
